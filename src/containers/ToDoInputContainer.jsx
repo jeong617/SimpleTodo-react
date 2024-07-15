@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function ToDoInputContainer(props) {
+export default function ToDoInputContainer({addTodo}) {
     const [inputBox, setInputBox] = useState('');
     const handleChange = (e) => {
         setInputBox(e.target.value);
@@ -9,7 +9,7 @@ export default function ToDoInputContainer(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputBox.trim() !== '') {
-            props.addTodo(inputBox);
+            addTodo(inputBox);
             setInputBox('');
         }
     }
