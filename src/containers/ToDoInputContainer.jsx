@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import ToDoInput from '../components/ToDoInput'
 
 export default function ToDoInputContainer({addTodo}) {
     const [inputBox, setInputBox] = useState('');
@@ -13,12 +14,5 @@ export default function ToDoInputContainer({addTodo}) {
             setInputBox('');
         }
     }
-    return (
-        <div className="todo-input">
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={inputBox} onChange={handleChange} placeholder='할 일을 입력하세요!' />
-                <button type="submit">추가</button>
-            </form>
-        </div>
-    )
+    return <ToDoInput handleSubmit={handleSubmit} handleChange={handleChange} inputBox={inputBox}/>
 }

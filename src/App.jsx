@@ -2,22 +2,12 @@ import * as React from 'react';
 import './App.css';
 import ToDoInputContainer from './containers/ToDoInputContainer'
 import ToDoListContainer from './containers/ToDoListContainer'
-import Button from '@mui/material/Button';
 
 function App() {
-  const [todos, setTodos] = React.useState([]);
-
-  React.useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      try {
-        setTodos(JSON.parse(storedTodos));
-      } catch (e) {
-        console.error("Failed to parse todos", e);
-        setTodos([]);
-      }
-    }
-  }, []);
+  const [todos, setTodos] = React.useState(() => {
+    const localData = localStorage.getItem('todos');
+    return localData ? JSON.parse(localData) : [];
+  });
 
   React.useEffect(() => {
     console.log('todos가 바뀌었단다');
@@ -46,7 +36,7 @@ function App() {
     <div className="container">
       <h1>TODO LIST</h1>
       <ToDoListContainer 
-        todos={Array.isArray(todos) ? todos : []}
+        todos={todos}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
         />
