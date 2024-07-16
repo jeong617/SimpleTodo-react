@@ -5,3 +5,32 @@ h1 {
     margin: auto;
     color: #eee;
 }
+
+ul {
+    margin: 10px 10rem 10px 10rem;
+    list-style: none;
+    padding: 0px;
+    text-align: left;
+    /* width: 300px; */
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+
+
+form {
+    text-align: center;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+}
